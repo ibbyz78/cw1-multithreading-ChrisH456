@@ -1,3 +1,4 @@
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,14 +16,21 @@ void *maxfunc(void *param);
 int main(int argc, char* argv[])
 {
 /* Create thread IDs */
-pthread_t tid; /* This is where the unique ID for the thread is created. A unique ID is used so that is is easily recognisable and hard to confuse with other threads*/
-pthread_attr_t attr;
+pthread_t Avg;/* This is where the unique ID for the thread is created. A unique ID is used so that is is easily recognisable and hard to confuse with other threads*/
+pthread_t Min;
+pthread_t Max;
+
+pthread_attr_t attrmax;
+pthread_attr_t attrmin;
+pthread_attr_t attravg;
 /* Create thread attributes */
 pthread_attr_init(&attr);
 /* Initialize thread attributes */
-int pthread_attr_t &attr;
+int pthread_attr_t &attrmax;
+int pthread_attr_t &attrmin;
+int pthread_attr_t &attravg;
 /* Create threads */
-pthread_create(&tid, &attr, avgfunc, minfunc, maxfunc, argv[1]);
+pthread_create(&Avg, &Max, &Min, &attravg, &attrmax, &attrmin, avgfunc, minfunc, maxfunc, argv[1]);
 
 /* Wait for threads to exit */
 pthread_join(tid,NULL);
@@ -80,13 +88,7 @@ void *minfunc(void *param)
     sprintf(minNum);
     return [0];
  }
-
-
  
- 
-
-
-
 void *maxfunc(void *param)
 int main()
 {
