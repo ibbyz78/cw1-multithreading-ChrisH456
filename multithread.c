@@ -24,15 +24,16 @@ pthread_attr_t attrmax;
 pthread_attr_t attrmin;
 pthread_attr_t attravg;
 /* Create thread attributes */
-pthread_attr_init(attrmax);
-pthread_attr_init(attravg);
-pthread_attr_init(attrmin);
+pthread_attr_init(&attrmax);
+pthread_attr_init(&attravg);
+pthread_attr_init(&attrmin);
 /* Initialize thread attributes */
 int pthread_attr_t &attrmax;
 int pthread_attr_t &attrmin;
 int pthread_attr_t &attravg;
 /* Create threads */
-pthread_create(&Avg, &Max, &Min, &attravg, &attrmax, &attrmin, avgfunc, minfunc, maxfunc, argv[1]);
+pthread_create(&Avg, &Max, &Min, &attravg, &attrmax, &attrmin);
+pthread_create(avgfunc, minfunc, maxfunc, argv[1]);
 
 /* Wait for threads to exit */
 pthread_join(tid,NULL);
