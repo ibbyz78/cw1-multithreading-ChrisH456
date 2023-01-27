@@ -24,7 +24,9 @@ pthread_attr_t attrmax;
 pthread_attr_t attrmin;
 pthread_attr_t attravg;
 /* Create thread attributes */
-pthread_attr_init(&attr);
+pthread_attr_init(attrmax);
+pthread_attr_init(attravg);
+pthread_attr_init(attrmin);
 /* Initialize thread attributes */
 int pthread_attr_t &attrmax;
 int pthread_attr_t &attrmin;
