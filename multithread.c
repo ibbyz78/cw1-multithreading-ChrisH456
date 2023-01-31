@@ -16,28 +16,28 @@ void *maxfunc(void *param);
 int main(int argc, char* argv[])
 {
 /* Create thread IDs */
-pthread_t Avg;/* This is where the unique ID for the thread is created. A unique ID is used so that is is easily recognisable and hard to confuse with other threads*/
-pthread_t Min;
-pthread_t Max;
+    pthread_t Avg;/* This is where the unique ID for the thread is created. A unique ID is used so that is is easily recognisable and hard to confuse with other threads*/
+    pthread_t Min;
+    pthread_t Max;
 
-pthread_attr_t attrmax;
-pthread_attr_t attrmin;
-pthread_attr_t attravg;
+    pthread_attr_t attrmax;
+    pthread_attr_t attrmin;
+    pthread_attr_t attravg;
 /* Create thread attributes */
-pthread_attr_init(&attrmax)
-pthread_attr_init(&attravg)
-pthread_attr_init(&attrmin)
+    pthread_attr_init(&attrmax);
+    pthread_attr_init(&attravg);
+    pthread_attr_init(&attrmin);
 /* Initialize thread attributes */
-int pthread_attr_t &attrmax;
-int pthread_attr_t &attrmin;
-int pthread_attr_t &attravg;
+    int pthread_attr_t &attrmax;
+    int pthread_attr_t &attrmin;
+    int pthread_attr_t &attravg;
 /* Create threads */
-pthread_create(&Avg, &Max, &Min, &attravg, &attrmax, &attrmin)
-pthread_create(avgfunc, minfunc, maxfunc, argv[1])
+    pthread_create(&Avg, &Max, &Min, &attravg, &attrmax, &attrmin);
+    pthread_create(avgfunc, minfunc, maxfunc, argv[1]);
 
 /* Wait for threads to exit */
-pthread_join(tid,NULL)
-printf("%d %d %d", avgNum, minNum, maxNum);
+    pthread_join(tid,NULL);
+    printf("%d %d %d", avgNum, minNum, maxNum);
 }
 
 void *avgfunc(void *param)
