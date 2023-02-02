@@ -24,9 +24,9 @@ int main(int argc, char* argv[])
     pthread_attr_t attrmin;
     pthread_attr_t attravg;
 /* Create thread attributes */
-    pthread_attr_init(&attrmax); /* These are the attributes for the threads. These use the identifer created above.*/
-    pthread_attr_init(&attravg);
-    pthread_attr_init(&attrmin);
+    const pthread_attr_init(&attrmax); /* These are the attributes for the threads. These use the identifer created above.*/
+    const pthread_attr_init(&attravg);
+    const pthread_attr_init(&attrmin);
 /* Initialize thread attributes */
 
 /* Create threads */
