@@ -23,10 +23,11 @@ int main(int argc, char* argv[])
     pthread_attr_t attrmax; /*These are the identifiers for the thread atrributes that are created later down the code.*/
     pthread_attr_t attrmin;
     pthread_attr_t attravg;
+
 /* Create thread attributes */
-    const pthread_attr_init(&attrmax); /* These are the attributes for the threads. These use the identifer created above.*/
-    const pthread_attr_init(&attravg);
-    const pthread_attr_init(&attrmin);
+    const pthread_attr_init(attrmax); /* These are the attributes for the threads. These use the identifer created above.*/
+    const pthread_attr_init(attravg);
+    const pthread_attr_init(attrmin);
 /* Initialize thread attributes */
 
 /* Create threads */
@@ -62,7 +63,7 @@ void *avgfunc(void *param)
     {
         sum = total/count;
         avgNum = sum;
-        pthread_exit(0);
+        pthread_exit (0);
     }
 }
 
