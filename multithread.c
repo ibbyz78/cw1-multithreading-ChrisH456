@@ -28,42 +28,42 @@ int main(int argc, char* argv[])
     pthread_attr_init(&attravg);
     pthread_attr_init(&attrmin);
 /* Initialize thread attributes */
-    int pthread_attr_t &attrmax; /*once the ID and attributes are made these liens of code are used to initiailise it and prepare it for use.*/
-    int pthread_attr_t &attrmin;
-    int pthread_attr_t &attravg;
+
 /* Create threads */
-    pthread_create(&Avg, &Max, &Min, &attravg, &attrmax, &attrmin); /* This is the creation of the threads that were defined above.*/
-    pthread_create(avgfunc, minfunc, maxfunc, argv[1]);
+    pthread_create(&Avg, &Max, &Min); /* This is the creation of the threads that were defined above.*/
+
 
 /* Wait for threads to exit */
-    pthread_join(tid,NULL); 
+    pthread_join(Avg); 
+    pthread_join(Max); 
+    pthread_join(Min); 
+
     printf("%d %d %d", avgNum, minNum, maxNum);/*this is where the data is collected from the variable above and printed in a human readable format.*/
 }
 
 void *avgfunc(void *param)
-
+{
     // The following two lines help you to access the arguments (list of numbers) passed to the program
     char** args = (char**) param;   // args is a pointer to array of pointers to main func arguments argv
     args++;                        // increment the pointer to point to the first number passed
   
-    
+    int count =0;
+    int total =0;
     // To get a number from args array, use atoi(*args)
     // to increment the pointer to point to the next number: *args++
     /* Write the code to calculate the average value and store it in avgNum variable */
- int main()
- {
-    int i,total;
-    int a[] = {args};
-    int n = 7;
 
-    total = 0;
+    while(atoi(*args)!= NULL){
+        count++;
+        total += atoi(*args);
 
-    for(i = 0; i< n; i++) {
-        total += a[i];
+
     }
-    sprintf("%f\n,", &avgNum)
-    return 0;
- 
+    {
+        sum = total/count;
+        avgNum = sum;
+        pthread_exit(0);
+    }
 }
 
 
