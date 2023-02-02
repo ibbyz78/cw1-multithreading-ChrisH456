@@ -31,9 +31,9 @@ int main(int argc, char* argv[])
 /* Initialize thread attributes */
 
 /* Create threads */
-    pthread_create(Avg, Max, Min); /* This is the creation of the threads that were defined above.*/
-
-
+    pthread_create(Avg); /* This is the creation of the threads that were defined above.*/
+    pthread_create(Max);
+    pthread_create(Min);
 /* Wait for threads to exit */
     pthread_join(Avg); 
     pthread_join(Max); 
