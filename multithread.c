@@ -56,7 +56,7 @@ void *avgfunc(void *param)
     while(atoi(*args)!= NULL){
         count++;
         total += atoi(*args);
-
+        args++;
 
     }
     {
