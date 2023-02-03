@@ -83,7 +83,7 @@ void *minfunc(void *param)
      while(*args!= NULL){ /*this nulls the value and prepares it for the function*/
 
 
-        if (min1<atoi(*args))
+        if (min1>atoi(*args))
     
            {
             min1 = atoi(*args);
