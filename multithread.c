@@ -59,8 +59,7 @@ void *avgfunc(void *param)
         total += atoi(*args);
         args++; /*this is to increment the args pointer*/
 
-    }
-    {
+    
         int sum = total/count; /* this is the equation to find the average*/
         avgNum = sum; /* this says that the sum should be stored in the avgNum variable*/
         pthread_exit (0); /*this tells the thread that the function is done.*/
