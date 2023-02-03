@@ -49,20 +49,20 @@ void *avgfunc(void *param)
     args++;                        // increment the pointer to point to the first number passed
   
     int count =0;
-    int total;
+    int total =0;
     // To get a number from args array, use atoi(*args)
     // to increment the pointer to point to the next number: *args++
     /* Write the code to calculate the average value and store it in avgNum variable */
 
     while(*args!= NULL){ /*This is the loop*/
-        total = total + atoi(*args);
-        count++;/* this tells the code to go to the next number in the array*/
+        count = count++; /* this tells the code to go to the next number in the array*/
+        total += atoi(*args);
         args++; /*this is to increment the args pointer*/
 
     }
     {
-        total = total/count; /* this is the equation to find the average*/
-        avgNum = total; /* this says that the sum should be stored in the avgNum variable*/
+        int sum = total/count; /* this is the equation to find the average*/
+        avgNum = sum; /* this says that the sum should be stored in the avgNum variable*/
         pthread_exit (0); /*this tells the thread that the function is done.*/
     }
 }
