@@ -16,30 +16,30 @@ void *maxfunc(void *param);
 int main(int argc, char* argv[]){
 
 /* Create thread IDs */
-    pthread_t Avg;/* This is where the unique ID for the thread is created. A unique ID is used so that is is easily recognisable and hard to confuse with other threads*/
-    pthread_t Min;
-    pthread_t Max;
+pthread_t Avg;/* This is where the unique ID for the thread is created. A unique ID is used so that is is easily recognisable and hard to confuse with other threads*/
+pthread_t Min;
+pthread_t Max;
 
-    pthread_attr_t attrmax; /*These are the identifiers for the thread atrributes that are created later down the code.*/
-    pthread_attr_t attrmin;
-    pthread_attr_t attravg;
+pthread_attr_t attrmax; /*These are the identifiers for the thread atrributes that are created later down the code.*/
+pthread_attr_t attrmin;
+pthread_attr_t attravg;
 
 /* Create thread attributes */
-    pthread_attr_init(&attrmax); /* These are the attributes for the threads. These use the identifer created above.*/
-    pthread_attr_init(&attravg);
-    pthread_attr_init(&attrmin);
+pthread_attr_init(&attrmax); /* These are the attributes for the threads. These use the identifer created above.*/
+pthread_attr_init(&attravg);
+pthread_attr_init(&attrmin);
 /* Initialize thread attributes */
 
 /* Create threads */
-    pthread_create(Avg, &attravg, avgfunc, argv); /* This is the creation of the threads that were defined above.*/
-    pthread_create(Max, attrmax, maxfunc, argv);
-    pthread_create(Min, attrmin, minfunc, argv);
+pthread_create(Avg, &attravg, avgfunc, argv); /* This is the creation of the threads that were defined above.*/
+pthread_create(Max, attrmax, maxfunc, argv);
+pthread_create(Min, attrmin, minfunc, argv);
 /* Wait for threads to exit */
-    pthread_join(Avg, NULL); 
-    pthread_join(Max, NULL); 
-    pthread_join(Min, NULL); 
+pthread_join(Avg, NULL); 
+pthread_join(Max, NULL); 
+pthread_join(Min, NULL); 
 
-    printf("%d %d %d", avgNum, minNum, maxNum);/*this is where the data is collected from the variable above and printed in a human readable format.*/
+printf("%d %d %d", avgNum, minNum, maxNum);/*this is where the data is collected from the variable above and printed in a human readable format.*/
 }
 
 void *avgfunc(void *param)
