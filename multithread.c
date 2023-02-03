@@ -119,3 +119,4 @@ void *maxfunc(void *param)
 maxNum = max1; /* this saves the result into the maximum number variable variable*/
 pthread_exit(0); /* this ends the thread*/
 }
+
