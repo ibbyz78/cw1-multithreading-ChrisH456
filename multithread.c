@@ -104,14 +104,14 @@ void *maxfunc(void *param)
     // to increment the pointer to point to the next number: *args++
     
     /* Write the code to calculate the maximum value and store it in maxNum variable */
-
+    int max1 =atoi(*args);
     int cn;
     while(*args != NULL) /* this nulls the value*/
     {
         cn =atoi(*args); /* this tells it to count the numbers in the array*/
-        if (cn>atoi(*args)); /* this is the calculation to find the maximum*/
+        if (cn<max1) /* this is the calculation to find the maximum*/
         {
-            cn=atoi(*args); /* this tells the system to save the cn value un maxnum*/
+            cn=max1; /* this tells the system to save the cn value un maxnum*/
         }
         args++; /* this increments on to the next number*/
     }
