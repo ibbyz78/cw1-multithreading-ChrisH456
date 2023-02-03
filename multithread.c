@@ -109,13 +109,13 @@ void *maxfunc(void *param)
      while(*args!= NULL){ /*this nulls the value and prepares it for the function*/
 
 
-        if (max1<atoi(*args))
+        if (max1<atoi(*args)) /* this finds the maximum value*/
     
            {
             max1 = atoi(*args);
            }
            args++; /* this increments the array of numbers to get it to the next number*/
 }
-maxNum = max1; /* this saves the result into the variable*/
+maxNum = max1; /* this saves the result into the maximum number variable variable*/
 pthread_exit(0); /* this ends the thread*/
 }
