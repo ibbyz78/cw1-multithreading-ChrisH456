@@ -16,30 +16,30 @@ void *maxfunc(void *param);
 int main(int argc, char* argv[]){
 
 /* Create thread IDs */
-pthread_t Avg;/* This is where the unique ID for the thread is created. A unique ID is used so that is is easily recognisable and hard to confuse with other threads*/
-pthread_t Min;
-pthread_t Max;
-
-pthread_attr_t attrmax; /*These are the identifiers for the thread atrributes that are created later down the code.*/
-pthread_attr_t attrmin;
-pthread_attr_t attravg;
-
+     pthread_t Avg;/* This is where the unique ID for the thread is created. A unique ID is used so that is is easily recognisable and hard to confuse with other threads*/
+     pthread_t Min;
+     pthread_t Max;
 /* Create thread attributes */
-pthread_attr_init(&attrmax); /* These are the attributes for the threads. These use the identifer created above.*/
-pthread_attr_init(&attravg);
-pthread_attr_init(&attrmin);
+     pthread_attr_t attrmax; /*These are the identifiers for the thread atrributes that are created later down the code.*/
+     pthread_attr_t attrmin;
+     pthread_attr_t attravg;
+
 /* Initialize thread attributes */
+     pthread_attr_init(&attrmax); /* These are the attributes for the threads. These use the identifer created above.*/
+     pthread_attr_init(&attravg);
+     pthread_attr_init(&attrmin);
+
 
 /* Create threads */
-pthread_create(Avg, &attravg, avgfunc, argv); /* This is the creation of the threads that were defined above.*/
-pthread_create(Max, attrmax, maxfunc, argv);
-pthread_create(Min, attrmin, minfunc, argv);
+     pthread_create(&Avg, &attravg, *avgfunc, argv); /* This is the creation of the threads that were defined above.*/
+     pthread_create(&Max, &attrmax, *maxfunc, argv);
+     pthread_create(&Min, &attrmin, *minfunc, argv);
 /* Wait for threads to exit */
-pthread_join(Avg, NULL); 
-pthread_join(Max, NULL); 
-pthread_join(Min, NULL); 
+     pthread_join(Avg, NULL); 
+     pthread_join(Max, NULL); 
+     pthread_join(Min, NULL); 
 
-printf("%d %d %d", avgNum, minNum, maxNum);/*this is where the data is collected from the variable above and printed in a human readable format.*/
+     printf("%d %d %d", avgNum, minNum, maxNum);/*this is where the data is collected from the variable above and printed in a human readable format.*/
 }
 
 void *avgfunc(void *param)
@@ -54,16 +54,16 @@ void *avgfunc(void *param)
     // to increment the pointer to point to the next number: *args++
     /* Write the code to calculate the average value and store it in avgNum variable */
 
-    while(atoi(*args)!= NULL){ /*This is the loop*/
-        count++;
+    while(*args!= NULL){ /*This is the loop*/
+        count = count++; /* this tells the code to go to the next number in the array*/
         total += atoi(*args);
-        args++;
+        args++; /*this is to increment the args pointer*/
 
     }
     {
-        sum = total/count;
-        avgNum = sum;
-        pthread_exit (0);
+        int sum = total/count; /* this is the equation to find the average*/
+        avgNum = sum; /* this says that the sum should be stored in the avgNum variable*/
+        pthread_exit (0); /*this tells the thread that the function is done.*/
     }
 }
 
@@ -78,24 +78,23 @@ void *minfunc(void *param)
     // to increment the pointer to point to the next number: *args++
     
     /* Write the code to calculate the minimum value and store it in minNum variable */
- int minnum = atoi(*args);
- int cn = 0;
-     while(atoi(*args)!= NULL);{
+ int min1 = atoi(*args); /*this calls the args array for the numbers.*/
 
-        int cn = atoi(*args);
-        if (cnminnum)
+     while(*args!= NULL);{ /*this nulls the value and prepares it for the function*/
+
+
+        if (min1<atoi(*args))
     
            {
-            minnum = cn;
+            min1 = atoi(*args);
            }
-           args++;
+           args++; /* this increments the array of numbers to get it to the next number*/
 }
-minNum = minnum;
-return pthread_exit(0);
+minNum = min1; /* this saves the result into the variable*/
+pthread_exit(0); /* this ends the thread*/
 }
  
 void *maxfunc(void *param)
-int main()
 {
     // The following two lines help you to access the arguments (list of numbers) passed to the program
     char** args = (char**) param;   // args is a pointer to array of pointers to main func arguments argv
@@ -105,17 +104,17 @@ int main()
     // to increment the pointer to point to the next number: *args++
     
     /* Write the code to calculate the maximum value and store it in maxNum variable */
-int maxnum =atoi(*args);
-int cn;
-    while(*args!-NULL)
+
+    int cn;
+    while(*args != NULL) /* this nulls the value*/
     {
-        int count =atoi(*args);
-        if (cn>maxnum)
+        int cn =atoi(*args); /* this tells it to count the numbers in the array*/
+        if (cn>atoi(*args)) /* this is the calculation to find the maximum*/
         {
-            maxnum=cn;
+            cn=atoi(*args); /* this tells the system to save the cn value un maxnum*/
         }
-        args++;
+        args++; /* this increments on to the next number*/
     }
-maxNum=maxnum;
-return pthread_exit(0);
+    maxNum=cn; /* this saves the result into the maxNum variable*/
+    pthread_exit(0); /*this stops the thread*/
 }
