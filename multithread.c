@@ -54,7 +54,7 @@ void *avgfunc(void *param)
     // to increment the pointer to point to the next number: *args++
     /* Write the code to calculate the average value and store it in avgNum variable */
 
-    while(atoi(*args)!= NULL){
+    while(atoi(*args)!= NULL){ /*This is the loop*/
         count++;
         total += atoi(*args);
         args++;
@@ -69,7 +69,7 @@ void *avgfunc(void *param)
 
 
 void *minfunc(void *param)
-
+{
     // The following two lines help you to access the arguments (list of numbers) passed to the program
     char** args = (char**) param;   // args is a pointer to array of pointers to main func arguments argv
     args++;                        // increment the pointer to point to the first number passed
@@ -78,11 +78,25 @@ void *minfunc(void *param)
     // to increment the pointer to point to the next number: *args++
     
     /* Write the code to calculate the minimum value and store it in minNum variable */
- 
+ int minnum = atoi(*args);
+ int cn = 0;
+     while(atoi(*args)!= NULL);{
+
+        int cn = atoi(*args);
+        if (cnminnum)
+    
+           {
+            minnum = cn;
+           }
+           args++;
+}
+minNum = minnum;
+return pthread_exit(0);
+}
  
 void *maxfunc(void *param)
 int main()
-
+{
     // The following two lines help you to access the arguments (list of numbers) passed to the program
     char** args = (char**) param;   // args is a pointer to array of pointers to main func arguments argv
     args++;                        // increment the pointer to point to the first number passed
@@ -91,4 +105,17 @@ int main()
     // to increment the pointer to point to the next number: *args++
     
     /* Write the code to calculate the maximum value and store it in maxNum variable */
-
+int maxnum =atoi(*args);
+int cn;
+    while(*args!-NULL)
+    {
+        int count =atoi(*args);
+        if (cn>maxnum)
+        {
+            maxnum=cn;
+        }
+        args++;
+    }
+maxNum=maxnum;
+return pthread_exit(0);
+}
