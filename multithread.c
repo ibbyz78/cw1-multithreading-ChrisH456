@@ -108,7 +108,7 @@ void *maxfunc(void *param)
     int cn;
     while(*args != NULL) /* this nulls the value*/
     {
-        cn =atoi(*args); /* this tells it to count the numbers in the array*/
+        int cn =atoi(*args); /* this tells it to count the numbers in the array*/
         if (cn<max1) /* this is the calculation to find the maximum*/
         {
             cn=max1; /* this tells the system to save the cn value un maxnum*/
