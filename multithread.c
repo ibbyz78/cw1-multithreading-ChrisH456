@@ -105,16 +105,16 @@ void *maxfunc(void *param)
     
     /* Write the code to calculate the maximum value and store it in maxNum variable */
 
-    int cn;
+     int cn;
     while(*args != NULL) /* this nulls the value*/
     {
         cn =atoi(*args); /* this tells it to count the numbers in the array*/
-        if (cn>atoi(*args)) /* this is the calculation to find the maximum*/
+        if (cn > maxNum) /* this is the calculation to find the maximum*/
         {
-            cn=atoi(*args); /* this tells the system to save the cn value un maxnum*/
+            maxNum = cn; /* this tells the system to save the cn value un maxnum*/
         }
         args++; /* this increments on to the next number*/
     }
-    maxNum=cn; /* this saves the result into the maxNum variable*/
-    pthread_exit(0); /*this stops the thread*/
+
+    return 0;
 }
